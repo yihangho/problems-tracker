@@ -1,2 +1,11 @@
-<h1>Problems#new</h1>
-<p>Find me in app/views/problems/new.html.erb</p>
+<h1>New Problem</h1>
+<%= form_for @problem do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+
+  <%= f.submit "Create" %>
+<% end %>

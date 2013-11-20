@@ -1,6 +1,6 @@
 PsRails::Application.routes.draw do
   get "problems/index"
-  get "problems/new"
+  resources :problems, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -41,7 +41,7 @@ PsRails::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
