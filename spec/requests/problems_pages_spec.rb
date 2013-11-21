@@ -25,4 +25,16 @@ describe "Problems Pages" do
       end
     end
   end
+
+  describe "index page" do
+    before do
+      30.times { FactoryGirl.create(:problem) }
+      visit root_path
+    end
+    it "should list each problem" do
+      Problem.all.each do |p|
+        expect(page).to have_link(p.name, href: p.link)
+      end
+    end
+  end
 end

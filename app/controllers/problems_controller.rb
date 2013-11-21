@@ -1,5 +1,6 @@
 class ProblemsController < ApplicationController
   def index
+    @problems = Problem.all
   end
 
   def new
@@ -9,7 +10,7 @@ class ProblemsController < ApplicationController
   def create
     @problem = Problem.new problem_params
     @problem.save
-    render 'index'
+    redirect_to root_path
   end
 
   private

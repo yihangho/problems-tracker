@@ -1,5 +1,5 @@
 PsRails::Application.routes.draw do
-  get "problems/index"
+  root 'problems#index'
   resources :problems, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
