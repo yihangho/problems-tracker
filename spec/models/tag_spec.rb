@@ -6,5 +6,6 @@ describe Tag do
   subject { tag }
 
   it { should respond_to :name }
+  it { should respond_to :problems }
   it { should be_valid }
 end

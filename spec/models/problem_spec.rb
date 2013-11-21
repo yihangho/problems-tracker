@@ -7,6 +7,7 @@ describe Problem do
 
   it { should respond_to :name }
   it { should respond_to :link }
+  it { should respond_to :tags }
   it { should be_valid }
 
   describe "when name is empty" do
