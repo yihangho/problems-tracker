@@ -1,0 +1,8 @@
+language: ruby
+rvm: "2.0.0"
+before_install:
+  - export RAILS_ENV=travis
+before_script:
+  - psql -c 'create database travis_test;' -U postgres
+  - bundle exec rake db:migrate
+script: bundle exec rspec spec

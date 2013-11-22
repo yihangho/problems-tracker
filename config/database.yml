@@ -22,6 +22,12 @@ test:
   pool: 5
   timeout: 5000
 
+travis:
+  adapter: postgresql
+  database: travis_test
+  username: postgres
+  host: 127.0.0.1
+
 production:
   adapter: sqlite3
   database: db/production.sqlite3
