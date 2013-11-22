@@ -1,13 +1,8 @@
 language: ruby
-rvm: 2.0.0
+rvm: "2.0.0"
 before_install:
-- export RAILS_ENV=travis
+  - export RAILS_ENV=travis
 before_script:
-- psql -c 'create database travis_test;' -U postgres
-- bundle exec rake db:migrate
+  - psql -c 'create database travis_test;' -U postgres
+  - bundle exec rake db:migrate
 script: bundle exec rspec spec
-deploy:
-  provider: heroku
-  api_key:
-    secure: mPFwBYLEPblj3pNoVP4yXuRTz77T8MSKXGEPCorTYTXBYJkQ4yua5coOjQ/FfS2dQhbkYplKNBznYiPTQ8Dm7+mA21XgharcMmmYjOpacjAZRFOIKwy5ll9GxMB6o+10vPYfR6qLuuVSCtmydFpHYKE1iWgxKlYsIVNtV+CbLAk=
-  app: psr
