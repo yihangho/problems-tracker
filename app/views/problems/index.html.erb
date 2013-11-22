@@ -13,4 +13,6 @@
     <% end %>
   </tbody>
 </table>
-<a href="#" class="btn btn-default"><i class="fa fa-plus-square-o"></i> Add new</a>
+<%= link_to new_problem_path, class: "btn btn-default" do %>
+  <i class="fa fa-plus-square-o"></i> Add new
+<% end %>
