@@ -1,0 +1,6 @@
+<h1><%= @tag.name %></h1>
+<ul>
+  <% @tag.problems.each do |p| %>
+    <li><%= link_to p.name, p.link %></li>
+  <% end %>
+</ul>

@@ -1,6 +1,7 @@
 ProblemsTracker::Application.routes.draw do
   root 'problems#index'
   resources :problems, only: [:new, :create]
+  resources :tags, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
