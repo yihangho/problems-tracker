@@ -15,6 +15,6 @@ class ProblemsController < ApplicationController
 
   private
   def problem_params
-    params.require(:problem).permit(:name, :link)
+    params.require(:problem).permit(:name, :link, :csv_tags)
   end
 end

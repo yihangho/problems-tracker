@@ -11,6 +11,7 @@ describe Problem do
   it { should respond_to :tags }
   it { should respond_to :add_tag }
   it { should respond_to :add_tags }
+  it { should respond_to :csv_tags }
   it { should be_valid }
 
   describe "when name is empty" do
@@ -23,7 +24,7 @@ describe Problem do
   	it { should_not be_valid }
   end
 
-  describe "adding a tag" do
+  describe "adding tag" do
 
     describe "with invalid information" do
       it "should not create new tag" do
@@ -50,13 +51,25 @@ describe Problem do
           expect { problem2.add_tag("Graph") }.not_to change(Tag.all, :count).by(1)
         end
       end
+
+      describe "with CSV" do
+        it "should create new tags" do
+          expect { problem.csv_tags = "Graph,SCC,   DFS"}.to change(problem.tags, :count).by(3)
+        end
+      end
+    end
+
+    describe "adding several tags" do
+      let(:tags) { ["Graph", "DFS", "SCC"] }
+      it "should create new tags" do
+        expect { problem.add_tags(tags) }.to change(problem.tags, :count).by(tags.count)
+      end
     end
   end
 
-  describe "adding several tags" do
+  describe "displaying tags" do
     let(:tags) { ["Graph", "DFS", "SCC"] }
-    it "should create new tags" do
-      expect { problem.add_tags(tags) }.to change(problem.tags, :count).by(tags.count)
-    end
+    before { problem.add_tags tags }
+    specify { expect(problem.csv_tags).to eq tags.join(", ") }
   end
 end
