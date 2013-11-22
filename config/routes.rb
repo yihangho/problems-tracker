@@ -1,4 +1,4 @@
-PsRails::Application.routes.draw do
+ProblemsTracker::Application.routes.draw do
   root 'problems#index'
   resources :problems, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.

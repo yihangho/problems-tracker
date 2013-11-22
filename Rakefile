@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-PsRails::Application.load_tasks
+ProblemsTracker::Application.load_tasks
