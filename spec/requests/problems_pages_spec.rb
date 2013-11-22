@@ -34,7 +34,9 @@ describe "Problems Pages" do
     it "should list each problem" do
       Problem.all.each do |p|
         expect(page).to have_link(p.name, href: p.link)
-        expect(page).to have_content(p.csv_tags)
+        p.tags.each do |t|
+          expect(page).to have_link(t.name, href: tag_path(t.id))
+        end
       end
     end
   end

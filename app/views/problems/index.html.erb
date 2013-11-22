@@ -8,7 +8,7 @@
     <% @problems.each do |p| %>
       <tr>
         <td><%= link_to p.name, p.link %></td>
-        <td><%= p.csv_tags %></td>
+        <td><%= csv_tags_links(p) %></td>
       </tr>
     <% end %>
   </tbody>
