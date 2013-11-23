@@ -11,6 +11,7 @@ deploy:
   api_key:
     secure: KiT2tiHcxYx0vdB1XbAsEuzW/rJH6hG6yjGVQh/7IYmPlpDdRZxBnmfcu88yqnHXy0ZoAW4DiHBEgalWDyzLBudr55QXEdHc6b57SDXC8oQ4wivYBdeOqPaY2OB8ugPcMhRojoSQexVTWZfwRqeBlU0B0u32+QeH3l1jel9RCm8=
   app: psr
+  strategy: git
   on:
     all_branches: true
     repo: yihangho/problems-tracker
