@@ -23,4 +23,18 @@ describe "Tags Pages" do
   	before { visit tag_path problem.tags.first.id }
   	it { should have_link problem.name, href: problem.link }
   end
+
+  describe "search page" do
+    before do
+      30.times { FactoryGirl.create(:tag) }
+      visit '/tags/search/t'
+    end
+
+    let(:search_result) { Tag.search_by_name 't' }
+    it "should have links to all results" do
+      search_result.each do |r|
+        expect(page).to have_link r.name, href: tag_path(r)
+      end
+    end
+  end
 end

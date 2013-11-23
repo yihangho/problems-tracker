@@ -1,4 +1,5 @@
 ProblemsTracker::Application.routes.draw do
+  get 'tags/search/:query' => 'tags#search'
   root 'problems#index'
   resources :problems, only: [:new, :create]
   resources :tags, only: [:index, :show]

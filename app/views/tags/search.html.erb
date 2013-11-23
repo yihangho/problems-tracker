@@ -1,0 +1,6 @@
+<h1>Search result</h1>
+<ul>
+	<% @results.each do |r| %>
+		<li><%= link_to r.name, tag_path(r) %></li>
+	<% end %>
+</ul>
