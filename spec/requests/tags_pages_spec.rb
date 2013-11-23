@@ -36,5 +36,10 @@ describe "Tags Pages" do
         expect(page).to have_link r.name, href: tag_path(r)
       end
     end
+
+    describe "JSON request" do
+      before { visit '/tags/search/t.json' }
+      it { should have_content search_result.to_json }
+    end
   end
 end
