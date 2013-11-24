@@ -7,6 +7,7 @@ describe "Problems Pages" do
   describe "new problem page" do
     before { visit new_problem_path }
     it { should have_content "New Problem" }
+    it { should have_title "New Problem" }
 
     describe "create new problem with invalid info" do
       it "should not create new problem" do
@@ -31,6 +32,7 @@ describe "Problems Pages" do
       30.times { FactoryGirl.create(:problem) }
       visit root_path
     end
+    it { should have_title "Problems Tracker | Problems" }
     it "should list each problem" do
       Problem.all.each do |p|
         expect(page).to have_link(p.name, href: p.link)

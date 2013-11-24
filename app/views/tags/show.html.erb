@@ -1,3 +1,4 @@
+<% provide(:title, @tag.name) %>
 <h1><%= @tag.name %></h1>
 <ul>
   <% @tag.problems.each do |p| %>
