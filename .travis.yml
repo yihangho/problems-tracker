@@ -10,7 +10,7 @@ deploy:
   provider: heroku
   api_key:
     secure: KiT2tiHcxYx0vdB1XbAsEuzW/rJH6hG6yjGVQh/7IYmPlpDdRZxBnmfcu88yqnHXy0ZoAW4DiHBEgalWDyzLBudr55QXEdHc6b57SDXC8oQ4wivYBdeOqPaY2OB8ugPcMhRojoSQexVTWZfwRqeBlU0B0u32+QeH3l1jel9RCm8=
-  app: psr
+  app: problems-tracker
   strategy: git
   run: "rake db:migrate"
   on:
