@@ -9,6 +9,8 @@ gem 'pg', '0.17.0'
 gem 'font-awesome-rails', '~> 4.0.3.0'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'sass-rails', '~> 4.0.0'
+gem 'will_paginate', '~> 3.0.5'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
