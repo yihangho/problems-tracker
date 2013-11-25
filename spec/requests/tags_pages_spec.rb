@@ -8,15 +8,20 @@ describe "Tags Pages" do
 
   	before do
   		30.times { FactoryGirl.create(:problem) }
+      50.times { FactoryGirl.create(:tag) }
   		visit tags_path
   	end
 
     it { should have_title "Tags" }
 
-  	it "should have links to all tags" do
-  	  Tag.all.each do |t|
+  	it "should have links to all tags with correct pagination" do
+  	  Tag.paginate(page: 1).each do |t|
   	  	expect(page).to have_link t.name, href: tag_path(t.id)
   	  end
+
+      Tag.paginate(page: 2).each do |t|
+        expect(page).not_to have_link t.name
+      end
   	end
   end
 

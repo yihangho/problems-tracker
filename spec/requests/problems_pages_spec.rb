@@ -29,16 +29,20 @@ describe "Problems Pages" do
 
   describe "index page" do
     before do
-      30.times { FactoryGirl.create(:problem) }
+      50.times { FactoryGirl.create(:problem) }
       visit root_path
     end
     it { should have_title "Problems Tracker | Problems" }
-    it "should list each problem" do
-      Problem.all.each do |p|
+    it "should list each problem with correct pagination" do
+      Problem.paginate(page: 1).each do |p|
         expect(page).to have_link(p.name, href: p.link)
         p.tags.each do |t|
           expect(page).to have_link(t.name, href: tag_path(t.id))
         end
+      end
+
+      Problem.paginate(page: 2).each do |p|
+        expect(page).not_to have_link(p.name, href: p.link)
       end
     end
   end

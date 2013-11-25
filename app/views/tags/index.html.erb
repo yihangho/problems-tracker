@@ -1,7 +1,9 @@
 <% provide(:title, "Tags") %>
 <h1>Tags</h1>
+<%= will_paginate %>
 <ul>
   <% @tags.each do |t| %>
     <li><%= link_to t.name, t %></li>
   <% end %>
 </ul>
+<%= will_paginate %>
