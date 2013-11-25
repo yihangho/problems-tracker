@@ -34,14 +34,14 @@ describe "Problems Pages" do
     end
     it { should have_title "Problems Tracker | Problems" }
     it "should list each problem with correct pagination" do
-      Problem.paginate(page: 1).each do |p|
+      Problem.paginate(page: 1, per_page: 20).each do |p|
         expect(page).to have_link(p.name, href: p.link)
         p.tags.each do |t|
           expect(page).to have_link(t.name, href: tag_path(t.id))
         end
       end
 
-      Problem.paginate(page: 2).each do |p|
+      Problem.paginate(page: 2, per_page: 20).each do |p|
         expect(page).not_to have_link(p.name, href: p.link)
       end
     end
