@@ -1,7 +1,8 @@
 language: ruby
 rvm: 2.0.0
 bundler_args: --without production development
-env: "RAILS_ENV=travis"
+env:
+- "RAILS_ENV=test rails_problems_tracker_test_database=travis_test rails_problems_tracker_test_host=127.0.0.1 rails_problems_tracker_test_username=postgres"
 before_script:
 - psql -c 'create database travis_test;' -U postgres
 - bundle exec rake db:migrate

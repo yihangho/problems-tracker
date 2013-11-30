@@ -25,12 +25,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test, :travis do
+group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'rspec-rails', '2.13.1'
 end
 
-group :test, :travis do
+group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara', '2.1.0'
 end
